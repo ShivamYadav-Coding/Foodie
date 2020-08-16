@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+</head>
+<body onload="myFunction();">
+    <header>
+        <div class="heading-1">
+        <h1 class="font-one">Foodie</h1>
+        <i class="fas fa-align-left" onclick="openNav()"></i>
+        </div>
+
+        <form class="flex">
+            <div class="location flex">
+            <i class="fas fa-map-marker-alt"></i>
+            <input type="text" placeholder="Search for City" id="searchCity">
+            <i class="fas fa-times" id="reset-1"></i>
+            </div>
+            <div class="searchBtn bg-color4" id="searchBtn-1">Set</div>
+        </form>
+        
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+            <select id="categories" onchange="categoryChanged()">
+                <option value="null">Categories: </option>
+                <option value="1">Delivery</option>
+                <option value="2">Dine-out</option>
+                <option value="3">Nightlife</option>
+                <option value="4">Catching-up</option>
+                <option value="5">Takeaway</option>
+                <option value="6">Cafes</option>
+                <option value="7">Daily Menus</option>
+                <option value="8">Breakfast</option>
+                <option value="9">Lunch</option>
+                <option value="10">Dinner</option>
+                <option value="11">Pubs & Bars</option>
+                <option value="13">Pocket Friendly Delivery</option>
+                <option value="14">Clubs & Lounges</option>
+              </select>
+    
+              <select id="sort" onchange="sortChanged()">
+                <option value="null">Sort by: </option>
+                <option value="cost">Cost</option>
+                <option value="rating">Rating</option>
+              </select>
+
+             <div class="likes">
+       <i class="fas fa-heart"></i> 
+    </div>
+
+      </div>
+    </header>
+
+<!-- Search Bar -->
+<div class="Search flex">
+    <div class="flex searchBox">
+    <input type="text" name="" id="searchForm" placeholder="Search...">
+    <i class="fas fa-times" id="reset-2"></i>
+    </div>
+    <div class="searchBtn bg-color4" id="searchBtn-2">Search</div>
+</div>
+
+<!-- Hotels -->
+<div class="loader"></div>
+<div class="container flex" id="main">
+
+<!-- <div class="card" id="789877">
+  <img src="images/img1.jpg" alt="Avatar">
+  
+  <div class="content">
+    
+    <div class="heading">
+      <h3>Puttar da dhaba best in the city</h3>
+      <i class="far fa-heart" id="heart"></i>
+    </div>
+  
+  <div class="item">
+    <h3>Rating: 4.2</h3>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="far fa-star"></i>
+  </div>
+
+  <div class="item">
+    <h3>Cuisines: </h3>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+  </div>
+
+  <div class="item">
+    <h3>COST FOR TWO: </h3>
+    <span class="tag">$ 400</span>
+  </div>
+
+  <div class="more">
+    <span class="goTo">Know more >></span>
+  </div>
+  </div>
+</div>
+
+<div class="card" id="787897">
+  <img src="images/img2.jpg" alt="Avatar">
+  
+  <div class="content">
+    
+    <div class="heading">
+      <h3>Puttar da dhaba best in the city</h3>
+      <i class="far fa-heart" id="heart"></i>
+    </div>
+  
+  <div class="item">
+    <h3>Rating: 4.2</h3>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="far fa-star"></i>
+  </div>
+
+  <div class="item">
+    <h3>Cuisines: </h3>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+  </div>
+
+  <div class="item">
+    <h3>COST FOR TWO: </h3>
+    <span class="tag">$ 400</span>
+  </div>
+
+  <div class="item">
+    <h3>Timings: </h3>
+    <span class="tag">11:30 AM to 11 PM (Mon, Tue, Wed, Thu, Sun)</span>
+    <span class="tag">11:30 AM to 12 Midnight (Fri-Sat)</span>
+  </div>
+
+  <div class="more">
+    <span class="goTo">Know more >></span>
+  </div>
+  </div>
+</div>
+
+<div class="card" id="6756456">
+  <img src="images/img3.jpg" alt="Avatar" >
+  
+  <div class="content">
+    
+    <div class="heading">
+      <h3>Puttar da dhaba best in the city</h3>
+      <i class="far fa-heart" id="heart"></i>
+    </div>
+  
+  <div class="item">
+    <h3>Rating: 4.2</h3>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="far fa-star"></i>
+  </div>
+
+  <div class="item">
+    <h3>Cuisines: </h3>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+  </div>
+
+  <div class="item">
+    <h3>COST FOR TWO: </h3>
+    <span class="tag">$ 400</span>
+  </div>
+
+  <div class="item">
+    <h3>Timings: </h3>
+    <span class="tag">11:30 AM to 11 PM (Mon, Tue, Wed, Thu, Sun)</span>
+    <span class="tag">11:30 AM to 12 Midnight (Fri-Sat)</span>
+  </div>
+
+  <div class="more">
+    <span class="goTo">Know more >></span>
+  </div>
+  </div>
+</div>
+
+
+<div class="card" id="8976">
+  <img src="images/img4.jpg" alt="Avatar">
+  
+  <div class="content">
+    
+    <div class="heading">
+      <h3>Puttar da dhaba best in the city</h3>
+      <i class="far fa-heart" id="heart"></i>
+    </div>
+  
+  <div class="item">
+    <h3>Rating: 4.2</h3>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="far fa-star"></i>
+  </div>
+
+  <div class="item">
+    <h3>Cuisines: </h3>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+    <span class="tag">Asian</span>
+    <span class="tag">Chines</span>
+    <span class="tag">Fast Food</span>
+  </div>
+
+  <div class="item">
+    <h3>COST FOR TWO: </h3>
+    <span class="tag">$ 400</span>
+  </div>
+
+  <div class="item">
+    <h3>Timings: </h3>
+    <span class="tag">11:30 AM to 11 PM (Mon, Tue, Wed, Thu, Sun)</span>
+    <span class="tag">11:30 AM to 12 Midnight (Fri-Sat)</span>
+  </div>
+
+  <div class="more">
+    <span class="goTo">Know more >></span>
+  </div>
+  </div>
+</div> -->
+
+<!-- end -->
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  
+  <!-- Close button -->
+  <span class="close">&times;</span>
+
+  <!-- Place where main content resides -->
+  <div id="mainContent" class="modal-content" id="586798">
+
+  </div>
+
+
+  <!-- beforeEnd -->
+</div>
+
+<!-- Pagination -->
+<div id="pagination">
+  <div id="prev"><i class="fas fa-chevron-circle-left"></i> Prev</div>
+  <div id="next">Next <i class="fas fa-chevron-circle-right"></i></div>
+</div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
